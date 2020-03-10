@@ -1,0 +1,325 @@
+@mixin tabletLandscape {
+  @media only screen and (min-width: 768px) and (max-width: 1224px) and (orientation: landscape) {
+    @content;
+  }
+}
+@mixin tabletPortrait {
+  @media only screen and (min-width: 768px) and (max-width: 1224px) and (orientation: portrait) {
+    @content;
+  }
+}
+@mixin iphone6 {
+  @media only screen and (min-width: 360px) and (max-height: 667px) {
+    @content;
+  }
+}
+@mixin iphone5 {
+  @media only screen and (min-width: 320px) and (max-height: 568px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media only screen and (min-width: 1224px) {
+    @content;
+  }
+}
+@mixin bigDesktop {
+  @media only screen and (min-width: 1600px) {
+    @content;
+  }
+}
+.rContainer {
+  @include desktop {
+    margin-top: 7em;
+    height: 50vh;
+  }
+  @include tabletLandscape {
+    margin-top: 15em;
+    height: 50vh;
+  }
+  @include bigDesktop() {
+    margin-top: 12em;
+  }
+  height: 100vh;
+
+  img {
+    width: 650px;
+    position: absolute;
+    left: -25em;
+    top: 346em;
+    @include tabletLandscape {
+      left: -21em;
+      margin-top: -6em;
+      top: unset;
+    }
+    @include desktop() {
+      top: unset;
+    }
+  }
+  .reviews-wrapper {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column-reverse;
+
+    @include desktop {
+      flex-direction: row;
+    }
+    @include tabletLandscape {
+      flex-direction: row;
+    }
+
+    h2 {
+      font-weight: 400;
+      color: #31384e;
+      line-height: 1.38;
+      padding: 1.2em;
+      @include tabletLandscape {
+        margin: -6em -1em 0 -9em;
+      }
+      @include tabletPortrait {
+        padding: 3em 3em 0;
+      }
+      @include bigDesktop() {
+        font-size: 38px;
+        padding: 1em;
+      }
+      .paytack {
+        font-weight: 300;
+      }
+      .rectangel {
+        width: 35px;
+        height: 4px;
+        border-radius: 68px;
+        background-color: #3b5efa;
+      }
+      .line-wrapper {
+        display: flex;
+        align-items: center;
+        margin-top: 0.5em;
+        .small-rec {
+          display: flex;
+          justify-content: flex-start;
+          .small {
+            width: 10px;
+            height: 4px;
+            border-radius: 68px;
+            background-color: #e2e8fb;
+            margin-left: 0.1em;
+          }
+        }
+      }
+    }
+    .review {
+      width: 200px;
+      height: 166px;
+      box-shadow: 0 15px 43px 0 rgba(0, 0, 0, 0.05);
+      background-color: #ffffff;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 10px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 15px;
+      padding: 1em 2em;
+      margin: 1em auto;
+      @include tabletLandscape {
+        margin: 1em;
+        min-width: 162px;
+      }
+      @include bigDesktop() {
+        width: 263px;
+        height: 180px;
+        margin: 1em 4em;
+      }
+
+      .name-company {
+        display: flex;
+        align-items: center;
+        // justify-content: space-around;
+        .pic {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          font-weight: normal;
+          border: 1px solid grey;
+        }
+        .wrapper {
+          // padding-left: 1em;
+          margin-top: 1em;
+        }
+        @include desktop {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          position: absolute;
+          top: 9.3em;
+        }
+        @include tabletLandscape {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          position: absolute;
+          top: 9.3em;
+        }
+        @include bigDesktop() {
+          top: 10.8em;
+        }
+      }
+      p,
+      h4,
+      h5 {
+        color: #31384e;
+      }
+      h4,
+      h5 {
+        margin: 0;
+      }
+      p {
+        opacity: 0.8;
+        font-size: 12px;
+        line-height: 1.76;
+        @include tabletLandscape {
+          font-size: 14px;
+        }
+        @include desktop() {
+          font-size: 14px;
+        }
+      }
+      h4 {
+        font-size: 14px;
+        font-weight: 300;
+      }
+
+      h5 {
+        font-size: 10px;
+        font-weight: normal;
+        opacity: 0.6;
+      }
+    }
+  }
+}
+
+.cContainer {
+  margin-top: 6em;
+  display: flex;
+  flex-direction: column-reverse;
+
+  @include desktop {
+    margin-top: 9em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    padding: 3em 10em 3em 18em;
+  }
+  @include tabletLandscape {
+    margin-top: 5em;
+    // height: 50vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    padding: 0 9em 0 11em;
+  }
+  @include tabletPortrait {
+    display: flex;
+    flex-direction: row;
+    margin: 2em 6em 3em 8em;
+  }
+
+  .text-wrapper {
+    padding: 0 2em;
+    h2 {
+      font-weight: 400;
+      color: #000000;
+      line-height: 1.38;
+
+      .paytack {
+        font-weight: 300;
+      }
+      .rectangel {
+        width: 35px;
+        height: 4px;
+        border-radius: 68px;
+        background-color: #3b5efa;
+        margin-top: 0.5em;
+      }
+      @include bigDesktop() {
+        font-size: 38px;
+      }
+    }
+    p {
+      font-size: 14px;
+      line-height: 1.67;
+      color: #000000;
+      #book {
+        margin-top: 1em;
+      }
+      @include bigDesktop() {
+        font-size: 18px;
+      }
+    }
+  }
+  .form-wrapper {
+    background-color: #3b5efa;
+
+    width: 295px;
+    padding: 1em;
+    @include bigDesktop() {
+      padding: 2em;
+    }
+    box-shadow: 0 6px 48px 0 rgba(0, 0, 0, 0.05);
+    margin: 1em auto;
+    border-radius: 10px;
+    @include desktop() {
+      width: 345px;
+    }
+    @include bigDesktop() {
+      width: 400px;
+    }
+    form {
+      display: grid;
+      grid-gap: 10px;
+
+      input,
+      textarea {
+        // background-color: #f2f2f2;
+        border: lightgray solid 1px;
+        padding: 1em;
+        line-height: 1.33;
+        border-radius: 10px;
+        &::-webkit-input-placeholder {
+          font-family: "Open Sans", sans-serif;
+          color: #31384e;
+        }
+
+        &:-moz-placeholder {
+          font-family: "Open Sans", sans-serif;
+          color: #31384e;
+        }
+      }
+      input {
+        height: 20px;
+      }
+
+      button {
+        width: 155px;
+        height: 43px;
+        border-radius: 96px;
+        background-color: #ffffff;
+        color: #3b5efa;
+        font-weight: 400;
+        margin-top: 1em;
+        border: none;
+        font-size: 1em;
+        &:hover {
+          color: #ffffff;
+          background-color: #3b5efa;
+          border: #ffffff 1px solid;
+        }
+        cursor: pointer;
+        @include bigDesktop() {
+          font-size: 1em;
+        }
+      }
+    }
+  }
+}

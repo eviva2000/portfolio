@@ -1,0 +1,159 @@
+@mixin tabletLandscape {
+  @media only screen and (min-width: 768px) and (max-width: 1224px) and (orientation: landscape) {
+    @content;
+  }
+}
+@mixin tabletPortrait {
+  @media only screen and (min-width: 768px) and (max-width: 1224px) and (orientation: portrait) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media only screen and (min-width: 1224px) {
+    @content;
+  }
+}
+@mixin bigDesktop {
+  @media only screen and (min-width: 1600px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media only screen and (max-width: 420px) {
+    @content;
+  }
+}
+.face-rec {
+  margin-top: 5em;
+  display: flex;
+  padding: 2em;
+  flex-direction: column;
+  background-color: #ebbdba;
+  @include tabletPortrait() {
+    align-items: center;
+  }
+  @include desktop {
+    flex-direction: row;
+  }
+  @include tabletLandscape {
+    flex-direction: row;
+  }
+  #phone {
+    width: 315px;
+    margin-top: 1em;
+    @include desktop {
+      width: 630px;
+      height: auto;
+      margin-left: 3em;
+
+      margin-right: 0;
+    }
+    @include tabletLandscape {
+      width: 600px;
+
+      margin-right: 0;
+    }
+    @include tabletPortrait {
+      width: 364px;
+    }
+    @include bigDesktop() {
+      width: 800px;
+    }
+  }
+  #shape {
+    display: none;
+    @include desktop {
+      display: block;
+      position: absolute;
+      right: -22em;
+      width: 540px;
+      top: 135em;
+    }
+    @include tabletLandscape {
+      display: block;
+      position: absolute;
+      right: -22em;
+      width: 509px;
+      top: 130em;
+    }
+    @include bigDesktop() {
+      top: unset;
+      right: -22em;
+    }
+  }
+  .text-button-wrapper {
+    @include desktop {
+      width: 30%;
+      padding-left: 8em;
+    }
+    @include tabletLandscape {
+      padding-left: 3em;
+    }
+    @include tabletPortrait {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    @include bigDesktop() {
+      width: 43%;
+      padding-left: 16em;
+    }
+    h2 {
+      @include mobile() {
+        padding: 0 0.6em;
+      }
+      @include bigDesktop() {
+        font-size: 38px;
+      }
+    }
+    p {
+      font-size: 14px;
+      line-height: 1.9;
+      color: #27325a;
+
+      @include bigDesktop() {
+        font-size: 18px;
+      }
+      @include mobile() {
+        padding: 0 1em;
+      }
+    }
+    .buttons {
+      display: flex;
+      justify-content: baseline;
+      @include bigDesktop() {
+        justify-content: unset;
+      }
+      a {
+        text-decoration: none;
+      }
+      .app-btn {
+        width: 180px;
+        height: 45px;
+        color: #27325a;
+        display: flex;
+        align-items: center;
+        justify-content: baseline;
+        margin: 0.4em;
+        border-bottom: 1px solid #ec5b51;
+        font-size: 1.1em;
+        font-weight: 600;
+        background-color: transparent;
+        img {
+          width: 18px;
+          padding: 0 0.5em;
+        }
+        @include mobile() {
+          width: 143px;
+        }
+        @include bigDesktop() {
+          font-size: 17px;
+          width: 213px;
+        }
+        cursor: pointer;
+      }
+    }
+  }
+}

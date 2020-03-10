@@ -1,0 +1,147 @@
+@mixin tablet {
+  @media only screen and (min-width: 570px) {
+    @content;
+  }
+}
+@mixin tabletPortrait {
+  @media only screen and (min-width: 768px) and (max-width: 1224px) and (orientation: portrait) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media only screen and (min-width: 900px) {
+    @content;
+  }
+}
+@mixin bigDesktop {
+  @media only screen and (min-width: 1800px) {
+    @content;
+  }
+}
+
+.footer-cpr-container {
+  background-color: #27325a;
+  padding: 2em;
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  @include tabletPortrait {
+    padding: 1em 2em;
+  }
+  display: grid;
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    @include desktop {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include tabletPortrait {
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .aboutus {
+      a {
+        text-decoration: none;
+        @include bigDesktop() {
+          font-size: 20px;
+        }
+      }
+
+      h3 {
+        color: #ebbdba;
+        @include desktop() {
+          margin: 0;
+        }
+        @include bigDesktop() {
+          font-size: 27px;
+        }
+      }
+      .tags {
+        padding-top: 1em;
+        .contacts {
+          display: flex;
+          align-items: center;
+          #linkedin,
+          #phone-no,
+          #email {
+            width: 20px;
+            padding-right: 1em;
+          }
+          p {
+            color: #ffffff;
+          }
+        }
+      }
+    }
+    .address {
+      h3 {
+        margin: 2em 0 0;
+        @include desktop() {
+          margin: 0;
+        }
+        @include bigDesktop() {
+          font-size: 27px;
+        }
+      }
+      .flag-address {
+        margin-top: 1em;
+        .flag-title {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          @include desktop {
+            justify-content: unset;
+          }
+          img {
+            width: 35px;
+          }
+          h4 {
+            font-weight: 300;
+            padding-left: 1em;
+            margin: 0;
+            @include bigDesktop() {
+              font-size: 20px;
+            }
+          }
+        }
+        p {
+          font-size: 12px;
+          margin: 0.5em 0;
+          @include bigDesktop() {
+            font-size: 16px;
+          }
+        }
+        #phone {
+          width: 10px;
+        }
+      }
+    }
+  }
+  hr {
+    margin: 3em 5em 1em;
+    opacity: 0.4;
+  }
+  #cpr {
+    margin-bottom: 1em;
+    text-align: center;
+    font-size: 12px;
+  }
+  .social-media,
+  .aboutus,
+  .address {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    margin-top: 1em;
+    @include desktop {
+      text-align: unset;
+      margin-top: unset;
+    }
+  }
+}
